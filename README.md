@@ -1,27 +1,16 @@
 ### GitBERT
 
-Automated code completion tools have revolution-
-ized software development workflows, yet effectively automating
-GitHub workflows remains a challenge due to their complex and
-context-dependent nature. For my course project, I devised GitBERT,
-a novel approach that leverages bidirectional transformer models
-to enhance the automation of GitHub workflow completion.
-Unlike previous approaches relying on single-model architectures
-like T5, GitBERT harnesses the power of BERT, a bidirectional
-transformer pre-trained on large-scale datasets containing both
-YAML and English text. GitBERT’s performance is evaluated
-across various fine-tuning strategies and compare it with ex-
-isting methods like GH-WCOM. The results from this study demonstrate that
-GitBERT outperforms GH-WCOM in both the Next Sentence
-(NS) and Job Completion (JC) tasks, achieving higher accuracy,
-BLEU scores, and ROUGE scores. Notably, GitBERT achieves
-an accuracy of 48.17% in the JC task compared to GH-WCOM’s
-34.23%, showcasing its superior capability in understanding
-and completing GitHub workflows. These findings underscore
-the effectiveness of bidirectional transformer architectures in
-automating complex software development tasks and highlight
-GitBERT’s potential to enhance developer productivity in CI/CD
-pipelines
+Automated code completion tools have revolutionized software development workflows, yet effectively automating
+GitHub workflows remains a challenge due to their complex and context-dependent nature. GitBERT, my submission for a course project, is a novel approach that leverages bidirectional transformer models to enhance the automation of GitHub workflow completion. Unlike previous approaches relying on single-model architectures like T5, GitBERT harnesses the power of BERT, a bidirectional transformer pre-trained on large-scale datasets containing both YAML and English text. GitBERT’s performance is evaluated across various fine-tuning strategies and compare it with existing methods like GH-WCOM. The results from this study demonstrate that GitBERT outperforms GH-WCOM in both the Next Sentence (NS) and Job Completion (JC) tasks, achieving higher accuracy, BLEU scores, and ROUGE scores. Notably, GitBERT achieves an accuracy of 48.17% in the JC task compared to GH-WCOM’s 34.23%, showcasing its superior capability in understanding and completing GitHub workflows. These findings underscore the effectiveness of bidirectional transformer architectures in automating complex software development tasks and highlight GitBERT’s potential to enhance developer productivity in CI/CD pipelines.
+
+### Results
+| Fine-tuning         | Constant | Polynomial | Inverse Sqrt | Slanted    |
+|---------------------|----------|------------|--------------|------------|
+| NS-base             | 41.31%   | 39.97%     | 38.17%       | 38.08%     |
+| NS-pre-trained      | 41.94%   | 41.04%     | 40.64%       | 40.58%     |
+| JC-base             | 47.70%   | 45.17%     | 43.17%       | 43.17%     |
+| JC-pre-trained      | 48.18%   | 45.98%     | 45.53%       | 45.55%     |
+
 
 ### Setup and Usage
 
