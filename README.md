@@ -42,4 +42,6 @@ This command installs the TensorFlow libraries, Transformers, and other dependen
     - Once fine-tuning data is tokenized, you can run the `bert_finetuning.py` script to train the BERT model on a specific fine-tuning task i.e Next-Sentence or Job-Completion.
     - The `nlp_metrics.py` script can be used to evaluate the quality of GitBERT's predictions using BLEU and ROUGE scores.
 
-> Datasets are a courtesy of Antonio Mastropaolo, Fiorella Zampetti, Gabriele Bavota, Massimiliano Di Penta curated for their study (GH-WCOM](https://github.com/antonio-mastropaolo/GH-WCOM/)
+
+<br>
+> Datasets are a courtesy of Antonio Mastropaolo, Fiorella Zampetti, Gabriele Bavota, Massimiliano Di Penta curated for their study [GH-WCOM](https://github.com/antonio-mastropaolo/GH-WCOM/)
