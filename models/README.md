@@ -1,0 +1,1 @@
+This directory will hold the trained models and results from their training.

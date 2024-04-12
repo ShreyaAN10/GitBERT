@@ -1,0 +1,1 @@
+This directory is to hold the GH-WCOM dataset. See [this] (https://github.com/antonio-mastropaolo/GH-WCOM) for more details.
