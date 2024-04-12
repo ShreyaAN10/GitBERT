@@ -43,5 +43,4 @@ This command installs the TensorFlow libraries, Transformers, and other dependen
     - The `nlp_metrics.py` script can be used to evaluate the quality of GitBERT's predictions using BLEU and ROUGE scores.
 
 
-<br>
 > Datasets are a courtesy of Antonio Mastropaolo, Fiorella Zampetti, Gabriele Bavota, Massimiliano Di Penta curated for their study [GH-WCOM](https://github.com/antonio-mastropaolo/GH-WCOM/)
