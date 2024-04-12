@@ -29,7 +29,7 @@ def load_and_merge_json(json1_path, json2_path, json_path):
 
     # Write the merged content back to json1
     with open(json_path, "w") as file:
-        json.dump(json_content, file, indent=4)  # indent for pretty formatting (optional)
+        json.dump(json_content, file, indent=4)
 
 def process_json_data(json_path):
     """
@@ -42,7 +42,7 @@ def process_json_data(json_path):
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
 
-    # Extract "jsonized-data" from each entry and store in a dictionary with "input" key
+    # Extract "jsonized-data" from each entry and store in a dictionary
     inputs_bag = [entry['jsonized-data'] for entry in data]
 
     # Print the first entry of the list

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import argparse
 import pickle
 import pandas as pd
-import seaborn as sns  # Import Seaborn for color palettes
+import seaborn as sns
 
 parser = argparse.ArgumentParser(description="Script to plot convergence plots")
 parser.add_argument("-task", choices=["ns", "jc"], help="ns for Next-Sentence, jc for Job-Completion")
@@ -122,16 +122,5 @@ elif args.task == 'jc' and args.mode == 'acc':
     plt.legend(loc='best')
     plt.tight_layout()
     plt.show()
-    plt.savefig(f"JC-acc.png")
-
-# for this_dict in sched_list:
-#     plt.plot(this_dict['epoch'], this_dict['val_accuracy'])
-#     plt.xlabel('Epochs')
-#     plt.ylabel('Train Accuracy')
-#     plt.title('Convergence')
-#     plt.legend(loc='best')
-
-#     plt.tight_layout()
-#     plt.show()
-#     plt.savefig(f"acc-{args.task}-{args.model}.png")    
+    plt.savefig(f"JC-acc.png")  
  

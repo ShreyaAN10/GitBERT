@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import argparse
 import pickle
-import seaborn as sns  # Import Seaborn for color palettes
+import seaborn as sns
 
 def plot_convergence(train_list, eval_list):
     plt.figure(figsize=(12, 6))
@@ -22,8 +22,6 @@ def plot_convergence(train_list, eval_list):
                 min_loss.append(results['loss'][i])  
             else:
                 min_loss.append(min_loss[-1])
-        # plt.plot(range(1, len(min_loss) + 1), min_loss, label=f'{scheduler} Scheduler', 
-        #         linestyle=line_styles[0], color=palette[j])
         plt.plot(range(1, len(results['loss']) + 1), results['loss'], label=f'{scheduler} Scheduler', 
                 linestyle=line_styles[0], color=palette[j])
         j += 1
@@ -37,7 +35,6 @@ def plot_convergence(train_list, eval_list):
     i = 0
     for results in train_list:
         scheduler = results['scheduler']
-        # print(results.keys())
         print(results['loss'][:100])
         print(results['accuracy'][:100])
         plt.plot(range(1, 100 + 1), results['loss'][:100], label=f'{scheduler} Scheduler', 
@@ -46,7 +43,6 @@ def plot_convergence(train_list, eval_list):
     plt.xlabel('Batches')
     plt.ylabel('Training Loss')
     plt.title('Training Loss Convergence Zoomed In')
-    # plt.legend(loc='best')
 
     # Plot validation accuracy
     plt.subplot(2, 2, 3)
@@ -78,7 +74,6 @@ def plot_convergence(train_list, eval_list):
     plt.xlabel('Batches')
     plt.ylabel('Validation Accuracy')
     plt.title('Validation Accuracy Convergence')
-    # plt.legend(loc='best')
 
     plt.tight_layout()
     plt.show()

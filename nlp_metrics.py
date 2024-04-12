@@ -88,9 +88,8 @@ with torch.no_grad():
                        attention_mask=attention_mask, 
                        labels=labels)
         # Process the outputs
-        # For example, if you want to extract predictions from the output logits
         logits = outputs.logits
-        # Optionally, apply softmax to convert logits to probabilities
+        # Apply softmax to convert logits to probabilities
         probabilities = torch.softmax(outputs.logits, dim=-1)
         # Find the token ID with the highest probability for the masked position
         predicted_token_ids = torch.argmax(probabilities, dim=-1)
@@ -123,6 +122,7 @@ with torch.no_grad():
             err_count += 1
 
 print(f'Errored: {err_count}')
+
 f_measures_L = []
 bleu_scores = []
 for i in range(len(tokens["preds"])):

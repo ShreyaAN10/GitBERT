@@ -24,14 +24,7 @@ input_file_path = "./ghwcom-dataset/Pre-training/tokenized_MLM_actions_yaml.pkl"
 with open(input_file_path, "rb") as pickle_file:
     inputs = pickle.load(pickle_file)
 
-# inputs.input_ids = inputs.input_ids[:100]
-# inputs.token_type_ids = inputs.token_type_ids[:100] 
-# inputs.attention_mask = inputs.attention_mask[:100]
-# inputs.next_sentence_label = inputs.next_sentence_label[:100] 
-# inputs.labels = inputs.labels[:100] 
-
 # Instantiate BERT model
-# model = BertForPreTraining.from_pretrained('bert-base-uncased')
 model = BertForMaskedLM.from_pretrained('bert-base-uncased')
 
 # Mask 15% of the input_ids
@@ -66,7 +59,6 @@ for epoch in range(N_EPOCHS):
     loop = tqdm(dataloader, leave=True)
     for batch in loop:
         optim.zero_grad()
-        # print(f'keys {batch.keys()}')
         input_ids = batch['input_ids'].to(device)
         token_type_ids = batch['token_type_ids'].to(device)
         attention_mask = batch['attention_mask'].to(device)
@@ -75,9 +67,7 @@ for epoch in range(N_EPOCHS):
                         token_type_ids=token_type_ids, 
                         attention_mask=attention_mask,
                         labels=labels)
-        # print(f'output {output}')
         loss = output.loss
-        # print(f'loss {loss}')
         loss.backward()
         optim.step()
         # Accumulate running loss

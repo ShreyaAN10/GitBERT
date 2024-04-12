@@ -26,8 +26,6 @@ def read_tsv(tsv_path):
             input_text, target_text = line.strip().split('\t')
             input_text = input_text + 'NEXT' + target_text
             sentences.append(input_text[-512:])
-            # print(sentences)
-            # break
             
     return sentences
 
@@ -77,7 +75,6 @@ inputs['labels'] = inputs.input_ids.detach().clone()
 print(f'inputs1: {inputs.keys()}')
 
 print(f'Masking...')
-# print(inputs['input_ids'][0])
 masks = []
 error = 0
 for i in tqdm(range(len(sentences))):
@@ -89,24 +86,16 @@ for i in tqdm(range(len(sentences))):
         if val == 102:
             # this is the [SEP] token
             indices.append(idx)
-    # print(indices)
     if len(indices) < 2:
         error += 1
         continue
     num_of_masks = indices[1] - indices[0] - 1
-    # print(num_of_masks)
 
     start_idx = indices[0] + 1
     while start_idx < indices[1]:
         # mask all tokens from NEXT to [SEP]
         inputs['input_ids'][i][start_idx] = 103
         start_idx += 1
-
-# print(inputs['input_ids'][0])
-
-# print('Decoding...')
-# print(tokenizer.decode(inputs['input_ids'][0]))
-# print(tokenizer.decode(inputs['labels'][0]))
 
 print(f'Number of disregarded instances: {error}')
 # Save inputs to a file

@@ -73,9 +73,6 @@ def train(args, model, train_dataloader, optimizer, scheduler, device):
         this_results["batch"].append(iter)
         this_results["loss"].append(loss.item())
         this_results["accuracy"].append(masked_accuracy)
-        iter += 1
-        # if iter == 20:
-        #     break
     print(f'[*] Training')
     batch_iter += 1
     if batch_iter == 1:
@@ -127,19 +124,6 @@ def evaluate(args, model, dataloader, device):
             this_results["batch"].append(iter)
             this_results["loss"].append(loss.item())
             this_results["accuracy"].append(masked_accuracy)
-            # predicted_labels = torch.argmax(logits, dim=2)
-            # total_correct += torch.sum(predicted_labels == labels).item()
-            # total_samples += torch.numel(labels)
-            # this_correct = torch.sum(predicted_labels == labels).item()
-            # this_samples = torch.numel(labels)
-            # this_accuracy = this_correct / this_samples
-            # # print(f'Evaluating batch: Correct Predictions: {this_correct} | Total Samples: {this_samples} | Batch Accuracy: {this_accuracy}')
-            # this_results["batch"].append(iter)
-            # this_results["loss"].append(loss.item())
-            # this_results["accuracy"].append(this_accuracy)
-            iter += 1
-            # if iter == 20:
-            #     break
     print(f'[*] Evaluation')
     batch_iter += 1
     if batch_iter == 1:
@@ -151,12 +135,6 @@ def evaluate(args, model, dataloader, device):
     return total_loss / len(dataloader), accuracy
 
 def main(args):
-    
-    # Load the state dictionary from the saved file
-    # config = BertConfig.from_pretrained("bert-base-uncased")
-    # model = BertForMaskedLM(config)
-    # model.load_state_dict(torch.load("/home/s4an/bert-autocom/models/pretrained_MLM_bert_10e_state_dict.pth"))
-    # model = torch.load(torch.load("/home/s4an/bert-autocom/models/pretrained_MLM_bert_10e_model.pth"))
     
     if args.model == 'base':
         print(f'Loading BERT base model...')
@@ -216,7 +194,6 @@ def main(args):
         print(f'Training with polynomial learning rate scheduler...')
         decay_steps = 10000
         end_learning_rate = 0.001
-        # scheduler = torch.optim.lr_scheduler.PolynomialLR(optimizer, decay_steps, end_learning_rate, power=0.5)
         scheduler = torch.optim.lr_scheduler.PolynomialLR(optimizer, decay_steps, end_learning_rate)
     elif args.scheduler == 'inverse_sqrt':
         print(f'Training with inverse square root learning rate scheduler...')
