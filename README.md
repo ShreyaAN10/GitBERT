@@ -5,7 +5,7 @@ GitHub workflows remains a challenge due to their complex and context-dependent 
 
 <br>
 
-### Results
+## Results
 
 This table illustrates the performance metrics of various learning-rate schedulers applied to different models in two tasks: Next Sentence (NS) and Job Completion (JC). The learning-rate schedulers include Constant, Polynomial, Inverse square root, and Slanted triangular. Each cell in the table represents the accuracy achieved by the corresponding model and fine-tuning strategy, providing insights into their effectiveness in different scenarios.
 | Fine-tuning         | Constant | Polynomial | Inverse Sqrt | Slanted    |
@@ -25,7 +25,7 @@ The table presents the accuracy, BLEU score, and ROGUE score for different model
 
 <br>
 
-### Setup and Usage
+## Setup and Usage
 
 1. Create a New Conda Environment: Run the following command to create a new conda environment named bert_training_env:
 `conda create --name bert_training_env python=3.8`
