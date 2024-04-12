@@ -40,4 +40,4 @@ This command installs the TensorFlow libraries, Transformers, and other dependen
     - Run the `bert_pretraining.py` script to pretrain a BERT-MLM model with the tokenized pretraining data.
     - Run the `tokenize_finetuning.py` script to tokenize either Next-Sentence or Job-Completion data.
     - Once fine-tuning data is tokenized, you can run the `bert_finetuning.py` script to train the BERT model on a specific fine-tuning task i.e Next-Sentence or Job-Completion.
-    - The `nlp_metrics` script can be used to evaluate the quality of GitBERT's predictions using BLEU and ROUGE scores.
+    - The `nlp_metrics.py` script can be used to evaluate the quality of GitBERT's predictions using BLEU and ROUGE scores.
